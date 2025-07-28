@@ -1,267 +1,208 @@
-/* Import all CSS files */
-@import 'layout.css';
-@import 'components.css';
-@import 'utilities.css';
+/* Base styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-/* Light Mode Overrides */
-body.light-mode {
-    background-color: #f4f8fb;
-    color: #1E293B;
-}
-
-body.light-mode .sidebar {
-    background-color: #fff;
-    color: #1E293B;
+/* Custom styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
 }
 
-body.light-mode .main-content {
-    background-color: #f4f8fb;
-    color: #1E293B;
+/* Sidebar */
+.sidebar {
+    background-color: #1e293b;
+    border-right: 1px solid #334155;
 }
 
-body.light-mode .card,
-body.light-mode .form-card,
-body.light-mode .processes-card,
-body.light-mode .process-card,
-body.light-mode .task-card,
-body.light-mode .form-container {
-    background-color: #fff !important;
-    color: #1E293B !important;
-    border-color: #e0e0e0 !important;
+/* Navigation */
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #94a3b8;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
 }
 
-body.light-mode .table-header,
-body.light-mode .table-row,
-body.light-mode .table-container {
-    background-color: #fff !important;
-    color: #1E293B !important;
-    border-bottom: 1px solid #e0e0e0 !important;
+.nav-link:hover {
+    background-color: #334155;
+    color: #f8fafc;
 }
 
-body.light-mode .search-input {
-    background-color: #fff !important;
-    color: #1E293B !important;
-    border: 1px solid #e0e0e0 !important;
+.nav-link.active {
+    background-color: #3b82f6;
+    color: #ffffff;
 }
 
-body.light-mode .search-input::placeholder {
-    color: #666 !important;
+/* Content area */
+.content-area {
+    background-color: #0f172a;
 }
 
-body.light-mode .dropdown-menu {
-    background-color: #fff !important;
-    color: #1E293B !important;
-    border-color: #e0e0e0 !important;
+/* Cards */
+.card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
 }
 
-body.light-mode .dropdown-item {
-    color: #1E293B !important;
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="datetime-local"],
+textarea,
+select {
+    background-color: #334155;
+    border: 1px solid #475569;
+    color: #f8fafc;
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    transition: all 0.2s;
 }
 
-body.light-mode .dropdown-item:hover {
-    background-color: #f4f8fb !important;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
-body.light-mode .empty-state,
-body.light-mode .empty-state-title {
-    color: #1E293B !important;
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
 }
 
-body.light-mode .empty-state-icon {
-    color: #e0e0e0 !important;
+.btn-primary {
+    background-color: #3b82f6;
+    color: #ffffff;
 }
 
-body.light-mode .status-in-progress {
-    background-color: #e0e7ff !important;
-    color: #1D4ED8 !important;
+.btn-primary:hover {
+    background-color: #2563eb;
 }
 
-body.light-mode .status-opened {
-    background-color: #fee2e2 !important;
-    color: #991B1B !important;
+.btn-secondary {
+    background-color: #475569;
+    color: #ffffff;
 }
 
-body.light-mode .status-completed {
-    background-color: #bbf7d0 !important;
-    color: #166534 !important;
+.btn-secondary:hover {
+    background-color: #334155;
 }
 
-body.light-mode .view-all-link {
-    color: #1D4ED8 !important;
+.btn-danger {
+    background-color: #ef4444;
+    color: #ffffff;
 }
 
-body.light-mode .view-all-link:hover {
-    color: #0F172A !important;
+.btn-danger:hover {
+    background-color: #dc2626;
 }
 
-body.light-mode .modal-backdrop {
-    background-color: rgba(0,0,0,0.2) !important;
+/* Status badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
 }
 
-/* Light mode: override header and sidebar text colors */
-body.light-mode .text-white,
-body.light-mode .sidebar .text-white,
-body.light-mode .main-content .text-white,
-body.light-mode h1.text-white,
-body.light-mode h2.text-white,
-body.light-mode h3.text-white,
-body.light-mode h4.text-white,
-body.light-mode h5.text-white,
-body.light-mode h6.text-white {
-    color: #1E293B !important;
+.status-badge.pending {
+    background-color: #fef3c7;
+    color: #92400e;
 }
 
-body.light-mode .text-slate-400,
-body.light-mode .main-content .text-slate-400 {
-    color: #64748B !important;
+.status-badge.paid {
+    background-color: #dcfce7;
+    color: #166534;
 }
 
-body.light-mode .text-slate-300 {
-    color: #334155 !important;
+.status-badge.overdue {
+    background-color: #fee2e2;
+    color: #991b1b;
 }
 
-body.light-mode .input-field {
-    background-color: #fff !important;
-    color: #1E293B !important;
-    border: 1px solid #e0e0e0 !important;
+.status-badge.cancelled {
+    background-color: #f3f4f6;
+    color: #374151;
 }
 
-body.light-mode .sidebar .bg-blue-600 {
-    background-color: #6366F1 !important;
-    color: #fff !important;
-}
-body.light-mode .sidebar .bg-blue-600 .material-icons,
-body.light-mode .sidebar .bg-blue-600 span {
-    color: #fff !important;
-}
-body.light-mode .brand-title,
-body.light-mode .sidebar .brand-title {
-    color: #6366F1 !important;
-}
-
-/* Dashboard metric cards in light mode */
-body.light-mode .dashboard-metric-card {
-    background-color: #6366F1 !important;
-    color: #fff !important;
-}
-body.light-mode .dashboard-metric-card,
-body.light-mode .dashboard-metric-card *,
-body.light-mode .dashboard-metric-card p,
-body.light-mode .dashboard-metric-card span,
-body.light-mode .dashboard-metric-card a,
-body.light-mode .dashboard-metric-card .material-icons {
-    color: #fff !important;
+/* Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    margin-top: 0.5rem;
+    min-width: 120px;
+    z-index: 50;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Light mode: Start New Process button on dashboard */
-body.light-mode .dashboard-start-process-btn {
-    background-color: #6366F1 !important;
-    color: #fff !important;
-    border: none !important;
-}
-body.light-mode .dashboard-start-process-btn .material-icons {
-    color: #fff !important;
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    transition: background-color 0.2s;
 }
 
-/* Fix for metric cards and start process button in light mode */
-body.light-mode .dashboard-metric-card .text-white,
-body.light-mode .dashboard-metric-card.text-white,
-body.light-mode .dashboard-start-process-btn .text-white,
-body.light-mode .dashboard-start-process-btn.text-white {
-    color: #fff !important;
+.dropdown-item:hover {
+    background-color: #374151;
 }
 
-/* Fix for metric cards and start process button in light mode */
-body.light-mode .dashboard-metric-card .text-white,
-body.light-mode .dashboard-metric-card.text-white,
-body.light-mode .dashboard-start-process-btn .text-white,
-body.light-mode .dashboard-start-process-btn.text-white {
-    color: #fff !important;
+/* Alerts */
+.alert {
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
-/* Force chat modal and input to be dark in dark mode */
-html.dark #new-chat-modal > div {
-  background: #1e293b !important;
-  color: #fff !important;
-}
-html.dark #new-chat-modal input {
-  background: #334155 !important;
-  color: #fff !important;
-  border-color: #334155 !important;
-}
-html.dark #chat-form {
-  background: #1e293b !important;
-}
-html.dark #chat-input {
-  background: #334155 !important;
-  color: #fff !important;
-  border-color: #334155 !important;
+.alert-success {
+    background-color: #dcfce7;
+    border: 1px solid #86efac;
+    color: #166534;
 }
 
-/* Force chat input to be theme-aware */
-html.dark #chat-form {
-    background: #0f172a !important;
-    border-color: #334155 !important;
+.alert-error {
+    background-color: #fee2e2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
 }
 
-html.dark #user-chat-input {
-    background: #1e293b !important;
-    color: #ffffff !important;
-    border-color: #475569 !important;
+/* Animations */
+.rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.2s;
 }
 
-body.light-mode #chat-form {
-    background: #ffffff !important;
-    border-color: #e2e8f0 !important;
-}
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -256px;
+        transition: left 0.3s;
+    }
 
-body.light-mode #user-chat-input {
-    background: #f1f5f9 !important;
-    color: #0f172a !important;
-    border-color: #cbd5e1 !important;
-}
-
-/* Force new chat modal to be theme-aware */
-html.dark #new-chat-modal > div {
-    background: #1e293b !important;
-    border-color: #475569 !important;
-    color: #ffffff !important;
-}
-
-html.dark #new-chat-modal h3,
-html.dark #new-chat-modal label {
-    color: #ffffff !important;
-}
-
-html.dark #new-chat-modal input {
-    background: #334155 !important;
-    color: #ffffff !important;
-    border-color: #475569 !important;
-}
-
-html.dark #cancel-new-chat {
-    background: #475569 !important;
-    color: #ffffff !important;
-}
-
-body.light-mode #new-chat-modal > div {
-    background: #ffffff !important;
-    border-color: #e2e8f0 !important;
-    color: #0f172a !important;
-}
-
-body.light-mode #new-chat-modal h3,
-body.light-mode #new-chat-modal label {
-    color: #0f172a !important;
-}
-
-body.light-mode #new-chat-modal input {
-    background: #f8fafc !important;
-    color: #0f172a !important;
-    border-color: #cbd5e1 !important;
-}
-
-body.light-mode #cancel-new-chat {
-    background: #e2e8f0 !important;
-    color: #0f172a !important;
+    .sidebar.open {
+        left: 0;
+    }
 }

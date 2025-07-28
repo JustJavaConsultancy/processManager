@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Create Invoice</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-white">Create New Invoice</h1>
+            <a th:href="@{/invoices}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                Back to List
+            </a>
+        </div>
+
+        <!-- Alert Messages -->
+        <div th:if="${param.error}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6">
+            <span class="block sm:inline" th:text="${param.error}">Error message here</span>
+        </div>
+
+        <div class="bg-slate-800 shadow-md rounded-lg p-6">
+            <form th:action="@{/invoices/create}" method="post" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Client Information -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-slate-400 mb-2">Client Name *</label>
+                            <input type="text" name="clientName" required
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 mb-2">Client Email *</label>
+                            <input type="email" name="clientEmail" required
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 mb-2">Amount (₦) *</label>
+                            <input type="number" name="amount" required min="0" step="0.01"
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                    </div>
+
+                    <!-- Invoice Details -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-slate-400 mb-2">Due Date</label>
+                            <input type="datetime-local" name="dueDate"
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 mb-2">Status</label>
+                            <select name="status"
+                                    class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option th:each="status : ${T(tech.justjava.process_manager.invoice.domain.InvoiceStatus).values()}"
+                                        th:value="${status}" th:text="${status}">PENDING</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-slate-400 mb-2">Description</label>
+                    <textarea name="description" rows="4"
+                              class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+
+                <div class="flex justify-end space-x-4">
+                    <a th:href="@{/invoices}"
+                       class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                        Cancel
+                    </a>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Create Invoice
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html> 

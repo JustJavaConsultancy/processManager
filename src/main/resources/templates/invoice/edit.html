@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Edit Invoice</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-white" th:text="${'Edit Invoice #' + invoice.invoiceNumber}">Edit Invoice</h1>
+            <div class="space-x-2">
+                <a th:href="@{/invoices/{id}(id=${invoice.id})}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                    Cancel
+                </a>
+            </div>
+        </div>
+
+        <!-- Alert Messages -->
+        <div th:if="${param.error}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6">
+            <span class="block sm:inline" th:text="${param.error}">Error message here</span>
+        </div>
+
+        <div class="bg-slate-800 shadow-md rounded-lg p-6">
+            <form th:action="@{/invoices/edit/{id}(id=${invoice.id})}" method="post" th:object="${invoice}" class="space-y-6">
+                <input type="hidden" th:field="*{id}" />
+                <input type="hidden" th:field="*{invoiceNumber}" />
+                <input type="hidden" th:field="*{issuedDate}" />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Client Information -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-slate-400 mb-2">Client Name *</label>
+                            <input type="text" th:field="*{clientName}" required
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 mb-2">Client Email *</label>
+                            <input type="email" th:field="*{clientEmail}" required
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 mb-2">Amount (₦) *</label>
+                            <input type="number" th:field="*{amount}" required min="0" step="0.01"
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                    </div>
+
+                    <!-- Invoice Details -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-slate-400 mb-2">Due Date</label>
+                            <input type="datetime-local" th:field="*{dueDate}"
+                                   th:value="${#temporals.format(invoice.dueDate, 'yyyy-MM-dd''T''HH:mm')}"
+                                   class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 mb-2">Status</label>
+                            <select th:field="*{status}"
+                                    class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option th:each="status : ${T(tech.justjava.process_manager.invoice.domain.InvoiceStatus).values()}"
+                                        th:value="${status}" th:text="${status}">PENDING</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-slate-400 mb-2">Description</label>
+                    <textarea th:field="*{description}" rows="4"
+                              class="w-full bg-slate-700 text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+
+                <div class="flex justify-end space-x-4">
+                    <a th:href="@{/invoices/{id}(id=${invoice.id})}"
+                       class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                        Cancel
+                    </a>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html> 
