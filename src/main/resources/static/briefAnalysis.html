@@ -207,6 +207,23 @@
                     <a href="/forms/invoicing" class="block py-2 px-3 rounded-lg transition-all duration-200 text-sm opacity-0">Manage Forms</a>
                 </div>
             </div>
+
+            <div>
+                <button class="w-full flex items-center justify-between px-4 py-3 text-slate-300 transition-all duration-200 menu-item" onclick="toggleDropdown(&quot;Invoicing&quot;)">
+                    <div class="flex items-center space-x-3">
+                        <span class="material-icons">task_alt</span>
+                        <span>Medical Process</span>
+                    </div>
+                    <i class="fas fa-chevron-down text-xs dropdown-icon transition-transform duration-200" id="medical-icon"></i>
+                </button>
+
+                <div class="submenu mt-1 ml-10" id="medicalProcess-submenu" style="max-height: 0px;">
+                    <a href="/processes/patientRegistration" class="block py-2 px-3 rounded-lg transition-all duration-200 text-sm opacity-0">Patient Registration</a>
+                    <a href="/tasks/patientRegistration" class="block py-2 px-3 rounded-lg transition-all duration-200 text-sm opacity-0">Tasks</a>
+                    <a href="/forms/patientRegistration" class="block py-2 px-3 rounded-lg transition-all duration-200 text-sm opacity-0">Manage Forms</a>
+                </div>
+            </div>
+
             <div>
                 <button class="w-full flex items-center justify-between px-4 py-3 text-slate-300 transition-all duration-200 menu-item" onclick="toggleDropdown(&quot;User Story Process Flow&quot;)">
                     <div class="flex items-center space-x-3">
@@ -315,11 +332,11 @@
   <div class="mb-3">
     <label for="brief" class="block text-sm font-medium text-slate-300 mb-2">Brief</label>
     <textarea value="Employer: BrightStar Manufacturing Ltd., Ikeja, Lagos
-Years of Service: 7 years (January 2018 – March 2025)
+Years of Service: 7 years (January 2018 ï¿½ March 2025)
 Summary of Events:
 I was employed as a Senior Accountant with BrightStar Manufacturing Ltd. for over seven years. On the 14th of March 2025, I was summoned to the HR office and informed that my services were no longer required. I was told to submit my company laptop and access card immediately and leave the premises. No reason was given for the termination, and I was not given any prior notice.
 
-My salary for February 2025 has not been paid, and I have not received any termination letter. I am also owed three months’ unpaid leave allowance for 2023 and 2024.
+My salary for February 2025 has not been paid, and I have not received any termination letter. I am also owed three monthsï¿½ unpaid leave allowance for 2023 and 2024.
 
 I believe my dismissal was wrongful because I have not been involved in any misconduct and I have consistently met my performance targets. I suspect this action may be linked to my refusal to approve certain questionable financial transactions requested by my supervisor earlier this year." id="brief" name="brief" class="form-input w-full px-4 py-3 rounded-lg border pr-12" placeholder="Brief" required></textarea>
   </div>
