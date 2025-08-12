@@ -3,14 +3,37 @@
   <process id="patientRegistration" name="patientRegistration" isExecutable="true" flowable:candidateStarterGroups="flowableUser">
     <documentation>Form Submission URL: @{http://localhost:9000/processes/start}
 
-Submit button caption : Start
+Submit button caption : Register Patient
 name:
 type: text
-label: Patient Name
-placeholder: Patient Name
+label: Patient Full Name
+placeholder: Patient Full Name
 required: true
 labelCss: block text-sm font-medium text-slate-300 mb-2
 inputCss: form-input w-full px-4 py-3 rounded-lg border pr-12
+
+dob:
+type: date
+label: Date of Birth
+placeholder: Select date
+required: true
+labelCss: block text-sm font-medium text-slate-300 mb-2
+inputCss: form-input w-full px-4 py-3 rounded-lg border pr-12
+
+gender:
+type: select
+label: Gender
+options:
+  - label: Male
+    value: male
+  - label: Female
+    value: female
+  - label: Other / Prefer not to say
+    value: other
+  required: true
+  labelCss: block text-sm font-medium text-slate-300 mb-2
+  inputCss: form-input w-full px-4 py-3 rounded-lg border pr-12
+
 
 email:
 type: text
@@ -38,8 +61,8 @@ inputCss: form-input w-full px-4 py-3 rounded-lg border pr-12
 
 brief:
 type: textarea
-label: Brief
-placeholder: Enter your brief
+label: Medical Concern / Reason for Visit
+placeholder: Describe your symptoms, condition, or purpose for registration
 required: true
 labelCss: block text-sm font-medium text-slate-300 mb-2
 inputCss: form-input w-full px-4 py-3 rounded-lg border pr-12
