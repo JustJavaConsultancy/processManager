@@ -64,11 +64,11 @@ public class HomeController {
         }
 
         request.getSession(true).setAttribute("processNames", processNames);
-        return "redirect:/dashboard";
+        return "redirect:/dashboard/caseManager";
     }
 
-    @GetMapping("/dashboard")
-    public String dashboard(Model model) {
+    @GetMapping("/dashboard/{processKey}")
+    public String dashboard(@PathVariable("processKey") String processKey,Model model) {
         long processInstancesCount = runtimeService.createProcessInstanceQuery()
                 .processDefinitionKey(processKey)
                 .active()
