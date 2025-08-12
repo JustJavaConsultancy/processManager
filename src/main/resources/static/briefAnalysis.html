@@ -225,6 +225,22 @@
             </div>
 
             <div>
+                <button class="w-full flex items-center justify-between px-4 py-3 text-slate-300 transition-all duration-200 menu-item" onclick="toggleDropdown(&quot;Invoicing&quot;)">
+                    <div class="flex items-center space-x-3">
+                        <span class="material-icons">task_alt</span>
+                        <span>Employment Process</span>
+                    </div>
+                    <i class="fas fa-chevron-down text-xs dropdown-icon transition-transform duration-200" id="medical-icon"></i>
+                </button>
+
+                <div class="submenu mt-1 ml-10" id="employmentProcess-submenu" style="max-height: 0px;">
+                    <a href="/processes/recruitment" class="block py-2 px-3 rounded-lg transition-all duration-200 text-sm opacity-0">Candidate Application</a>
+                    <a href="/tasks/recruitment" class="block py-2 px-3 rounded-lg transition-all duration-200 text-sm opacity-0">Tasks</a>
+                    <a href="/forms/recruitment" class="block py-2 px-3 rounded-lg transition-all duration-200 text-sm opacity-0">Manage Forms</a>
+                </div>
+            </div>
+
+            <div>
                 <button class="w-full flex items-center justify-between px-4 py-3 text-slate-300 transition-all duration-200 menu-item" onclick="toggleDropdown(&quot;User Story Process Flow&quot;)">
                     <div class="flex items-center space-x-3">
                         <span class="material-icons">task_alt</span>
