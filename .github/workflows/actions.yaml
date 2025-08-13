@@ -1,4 +1,4 @@
-name: build-processManager
+name: build-processmanager
 on:
   push:
     branches:
