@@ -60,6 +60,18 @@ server:
   tomcat:
     max-part-count: '100'
   port: 9000
+
+flowable:
+  http:
+    enabled: true
+  history-level: audit
+  mail:
+    server:
+      host: smtp.gmail.com
+      port: 587
+      username: oguntolavictor181@gmail.com
+      password: rrvgkoncobwpwudg   # App password, not account password
+      use-tls: true
 springdoc:
   pathsToMatch: /api/**
 keycloak:
